@@ -1,10 +1,19 @@
-import { Box, Heading } from '@chakra-ui/react';
+import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 function App() {
   return (
-    <Box p={6} bg="gray.50" minH="100vh">
-      <Heading color="teal.500">Welcome to EchoJournal 🌿</Heading>
-    </Box>
+    <ChakraProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          {/* more routes to come */}
+        </Routes>
+      </Router>
+    </ChakraProvider>
   );
 }
 
